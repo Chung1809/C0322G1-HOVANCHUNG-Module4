@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head th:replace="/layout :: head">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create">Create Product</a>
+<form action="/search" method="get" >
+    <input type="text" name="name">
+    <button type="submit">Search</button>
+</form>
+<table th:id="product">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SINGLE</th>
+        <th>TYPE MUSIC</th>
+        <th>PATH</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    <tr th:each="music,loop : ${listMusic}">
+        <td th:text="${music.id}"></td>
+        <td th:text="${music.name}"></td>
+        <td th:text="${music.single}"></td>
+        <td th:text="${music.typeMusic}"></td>
+        <td ><a th:text="${music.path}" th:href="${music.path}"></a></td>
+        <td><a th:href="@{/edit/__${music.id}__}">Edit</a></td>
+        <td><a th:href="@{/delete/__${music.id}__}">Delete</a></td>
+
+    </tr>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
