@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "product")
 public class Product {
@@ -14,6 +11,7 @@ public class Product {
     private Double price;
     private String description;
     private String producer;
+    @Column(columnDefinition = "int default 0")
     private Integer status =0;
 
     public Product() {

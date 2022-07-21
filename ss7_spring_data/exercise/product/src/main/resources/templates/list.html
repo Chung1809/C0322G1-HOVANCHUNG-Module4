@@ -57,10 +57,10 @@
 <div class="md-3 mx-auto"></div>
     <center>
         <div>
-            <a th:if="${list.hasPrevious()}" th:href="@{/blog/list(page = ${list.number - 1},name = ${name})}">Previous</a>
+            <a th:if="${list.hasPrevious()}" th:href="@{/list(page = ${list.number - 1},name = ${name})}">Previous</a>
             <span th:text="${list.number + 1}"></span>/
             <span th:text="${list.totalPages}"></span>
-            <a th:if="${list.hasNext()}" th:href="@{/blog/list(page = ${list.number + 1},name = ${name})}">Next</a>
+            <a th:if="${list.hasNext()}" th:href="@{/list(page = ${list.number + 1},name = ${name})}">Next</a>
         </div>
     </center>
     <form th:action="@{/delete}" method="get">
