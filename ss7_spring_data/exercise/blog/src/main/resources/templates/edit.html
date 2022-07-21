@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/blog/list">Back list</a>
+<form th:action="@{/blog/edit}" method="post" th:object="${blog}">
+    <tr>
+        <td>ID</td>
+        <input type="text" th:field="*{id}" readonly>
+    </tr>
+    <tr>
+        <td>TITLE</td>
+        <input type="text" th:field="*{title}">
+    </tr>
+    <tr>
+        <td>CONTENT</td>
+        <input type="text" th:field="*{content}">
+    </tr>
+    <tr>
+        <td>DATE</td>
+        <input type="date" th:field="*{dateWrite}">
+    </tr>
+    <tr>
+        <td>CATEGORY</td>
+        <select th:field = "*{category}">
+            <option th:each="item : ${category}" th:value="${item.id}" th:text="${item.name}"></option>
+        </select>
+    </tr>
+    <tr>
+        <button type="submit">UPDATE</button>
+    </tr>
+</form>
+</body>
+</html>
